@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo chown root:school hello
+chgrp school hello
