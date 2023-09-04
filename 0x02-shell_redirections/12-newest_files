@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -ct1
+ls -ct1 | head
