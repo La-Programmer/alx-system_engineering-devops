@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod u+x *; chmod u-x README.md
+ls -ct1 | head -1 | xargs chmod u+x
