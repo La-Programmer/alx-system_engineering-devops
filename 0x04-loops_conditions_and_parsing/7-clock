@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script prints out a counting clock
+
+j=0
+
+while [ $j -le 12 ]; do
+	i=1
+	echo "Hour: $j"
+	while [ $i -lt 60 ]; do
+		echo "$i"
+		i=$((i + 1))
+	done
+	j=$((j + 1))
+done

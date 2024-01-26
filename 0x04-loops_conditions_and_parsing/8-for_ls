@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script displays the content of the current
+#+ directory
+
+LIST="$(ls -- *)"
+
+for i in $LIST; do
+	FILE=$(echo "$i" | cut -d "-" -f 2)
+	echo "$FILE"
+done
