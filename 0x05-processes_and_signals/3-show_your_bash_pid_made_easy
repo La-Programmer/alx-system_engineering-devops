@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script displays all processes called bash
+
+pgrep -l bash
