@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script prints all listening ports
+
+sudo netstat -tulpn
