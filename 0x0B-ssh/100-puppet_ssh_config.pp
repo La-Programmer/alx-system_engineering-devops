@@ -5,6 +5,6 @@ file { '/home/justin/.ssh/config':
     mode    => '0600',
     owner   => 'justin',
     content => 'Host *
-                    PasswordAuthentication no
-                    CertificateFile /home/justin/.ssh/school'
+    PasswordAuthentication no
+    CertificateFile /home/justin/.ssh/school'
 }
