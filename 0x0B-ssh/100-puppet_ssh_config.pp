@@ -1,6 +1,6 @@
-# Creates/modifies my ~/.ssh/config
+# Creates/modifies my etc/ssh/ssh_config
 
-file { '/home/justin/.ssh/config':
+file { '/etc/ssh/ssh_config':
     ensure  => file,
     mode    => '0600',
     owner   => 'justin',
