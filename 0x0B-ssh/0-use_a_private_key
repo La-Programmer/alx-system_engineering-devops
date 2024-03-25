@@ -3,8 +3,8 @@
 #with user 'ubuntu'
 
 # Define variables
-private_key=~/.ssh/school
-username=ubuntu
+private_key="$HOME/.ssh/school"
+username='ubuntu'
 server_address='100.26.154.136'
 
 # Check if the private key file exists
