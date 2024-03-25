@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#Connects to my server using the private key
+#with user 'ubuntu'
+
+# Define variables
+private_key=~/.ssh/school
+username=ubuntu
+server_address='100.26.154.136'
+
+# Check if the private key file exists
+if [ ! -f "$private_key" ]; then
+    echo "Private key file not found: $private_key"
+    exit 1
+fi
+
+# Check if the server address is provided
+if [ -z "$server_address" ]; then
+    echo "Server address is not provided."
+    exit 1
+fi
+
+# SSH connection command
+ssh -i "$private_key" "$username@$server_address"
