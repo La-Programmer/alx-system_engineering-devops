@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Configures an nginx server
+
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo ufw allow 'OpenSSH'
+sudo ufw enable
+cd /var/www/html
+sudo touch index.html
+sudo sh -c 'echo "Hello World!" > index.html'
