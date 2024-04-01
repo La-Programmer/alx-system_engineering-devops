@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Configure nginx server to redirect
 
-export string="server {\n\tlisten 80;\n\tlisten [::]:80;\n\n\tserver_name _;\n\n\troot /var/www/html;\n\tindex index.html;\n\n\tlocation /redirect_me {\n\t\t# Redirection page\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n}
-"
-sudo sed -i '$a\'$'\n'"$string"$'\n' /etc/nginx/sites-available/default
+export string="\n\tlocation /redirect_me {\n\t\t# Redirection page\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
+sudo sed -i "/server_name _;/a\\ $string" /etc/nginx/sites-available/default
+sudo nginx -t
+sudo nginx -s reload
