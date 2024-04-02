@@ -2,4 +2,4 @@
 # Installs Lynx and sets APACHE_LYNX variable
 sudo apt-get update
 sudo apt install lynx
-sudo echo 'export APACHE_LYNX=/usr/bin/lynx' >> /etc/apache2/envvars
+echo 'export APACHE_LYNX=/usr/bin/lynx' | sudo tee -a /etc/apache2/envvars
