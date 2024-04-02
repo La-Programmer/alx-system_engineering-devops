@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Installs Lynx and sets APACHE_LYNX variable
+sudo apt-get update
+sudo apt install lynx
+sudo echo 'export APACHE_LYNX=/usr/bin/lynx' >> /etc/apache2/envvars
