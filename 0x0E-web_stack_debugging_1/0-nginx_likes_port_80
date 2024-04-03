@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# DEBUG UBUNTU 20.04 CONTAINER NGINX SERVER
+apt-get update
+apt -y install curl
+apt -y install nginx
+service nginx start
