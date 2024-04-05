@@ -3,4 +3,5 @@
 apt-get update
 apt -y install curl
 apt -y install nginx
-service nginx start
+sed -i "/listen 80 default_server;/a\\tlisten [::]:80 default_server;"
+service nginx restart
