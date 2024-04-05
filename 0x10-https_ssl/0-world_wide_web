@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Print information about my subdoamins
+
+string='The subdomain www is a A record and points to 34.227.91.65
+The subdomain lb-01 is a A record and points to 34.227.91.65
+The subdomain web-01 is a A record and points to 54.209.112.14
+The subdomain web-02 is a A record and points to 52.91.134.77'
+
+if [ $# -lt 2 ]; then
+    echo "$string"
+    exit 0
+fi
+
+print_sub () {
+    local subdomain_name=$1
+    echo "$string" | awk -v subdomain="$subdomain_name" -F' ' '$3 == subdomain {print}'
+}
+
+print_sub "$2"
