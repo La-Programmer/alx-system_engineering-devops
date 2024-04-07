@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# DEBUG UBUNTU 20.04 CONTAINER NGINX SERVER
+apt-get update
+apt -y install curl
+apt -y install nginx
+sed -i "/listen 80 default_server;/a\\tlisten [::]:80 default_server;"
+service nginx restart
