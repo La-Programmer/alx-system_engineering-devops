@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Creates backup SQL file
+
+if [ $# -ne 1 ]; then
+    echo "Usage: ./5-mysql_backup <password>"
+    exit 1
+fi
+
+sudo mysqldump -u root -p$1 --all-databases > backup.sql
+tar -czvf $(date +"%d-%m-%Y").tar.gz backup.sql
