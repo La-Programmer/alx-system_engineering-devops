@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""This module makes a GET request to an API for user and tasks
-"""
+"""python3 -c 'print(__import__("my_module").__doc__)'"""
 
 import requests
 import sys
