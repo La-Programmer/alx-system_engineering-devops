@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""This module exports to a CSV file"""
+"""python3 -c 'print(__import__("my_module").__doc__)'
+"""
 
 import csv
 import requests
