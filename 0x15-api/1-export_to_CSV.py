@@ -26,7 +26,7 @@ def run():
     if todo_response.status_code == 200:
         todos = todo_response.json()
         users_todos = [todo for todo in todos if todo.get('userId') == user_id]
-        print(users_todos)
+        # print(users_todos)
     else:
         print("Error:", f"Status code: {todo_response.status_code}")
 
@@ -38,10 +38,10 @@ def run():
                 f'{todo.get("completed")}',
                 f'{todo.get("title")}']
         data_to_export.append(task)
-    print(data_to_export)
+    # print(data_to_export)
 
     with open(f"{user_id}.csv", "w", newline="") as csvfile:
-        writer = csv.writer(csvfile)
+        writer = csv.writer(csvfile, quotechar="\"", quoting=csv.QUOTE_ALL)
         writer.writerows(data_to_export)
 
 
