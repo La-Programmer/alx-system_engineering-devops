@@ -10,6 +10,7 @@ args = sys.argv
 user_url = f'https://jsonplaceholder.typicode.com/users/{args[1]}'
 todo_url = 'https://jsonplaceholder.typicode.com/todos/'
 
+
 def run():
     """Main function"""
     user_response = requests.get(user_url)
@@ -26,22 +27,24 @@ def run():
     if todo_response.status_code == 200:
         # print(todo_response)
         todo_list = todo_response.json()
-        user_todo_list = [todo for todo in todo_list if todo.get('userId') == user_id]
+        user_todo_list = [
+                            todo for todo in todo_list
+                            if todo.get('userId') == user_id]
         # print("Todo List: ", todo_list)
         completed_tasks = []
-        no_tasks = len(user_todo_list)
+        nt = len(user_todo_list)
         for task in user_todo_list:
             if task.get('completed') is True:
                 completed_tasks.append(task)
         # print("User's todo list: ", user_todo_list)
-        comp_tasks = len(completed_tasks)
+        ct = len(completed_tasks)
         print(
-            f"Employee {data.get('name')} is done with tasks({comp_tasks}/{no_tasks}):"
-            )
+            f"Employee {data.get('name')} is done with tasks({ct}/{nt}):")
         for task in completed_tasks:
             print(f"\t {task.get('title')}")
     else:
         print("Error:", f"Status code: {todo_response.status_code}")
+
 
 if __name__ == "__main__":
     run()
