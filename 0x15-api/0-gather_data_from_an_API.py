@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""This module makes a GET request to an API"""
+"""This module makes a GET request to an API for user and tasks
+"""
 
 import requests
 import sys
