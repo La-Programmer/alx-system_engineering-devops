@@ -25,15 +25,16 @@ if todo_response.status_code == 200:
     user_todo_list = [todo for todo in todo_list if todo['userId'] == user_id]
     # print("Todo List: ", todo_list)
     completed_tasks = []
-    no_of_tasks = len(user_todo_list)
+    no_tasks = len(user_todo_list)
     for task in user_todo_list:
-        if task['completed'] == True:
+        if task['completed'] is True:
             completed_tasks.append(task)
     # print("User's todo list: ", user_todo_list)
-    no_of_completed_tasks = len(completed_tasks)
-    print(f"Employee {data['name']} is done with tasks({no_of_completed_tasks}/{no_of_tasks}):")
+    comp_tasks = len(completed_tasks)
+    print(
+        f"Employee {data['name']} is done with tasks({comp_tasks}/{no_tasks}):"
+        )
     for task in completed_tasks:
         print(f"\t {task['title']}")
 else:
     print("Error:", f"Status code: {todo_response.status_code}")
-
