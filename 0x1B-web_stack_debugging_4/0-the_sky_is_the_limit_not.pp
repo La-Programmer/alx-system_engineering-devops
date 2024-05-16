@@ -4,3 +4,9 @@ file { 'nginx':
   path    => '/etc/default/nginx',
   content => 'ULIMIT="-n 500"'
 }
+
+service { 'nginx':
+  ensure => running,
+  enable => true,
+  require => File['nginx'],
+}
