@@ -2,5 +2,5 @@
 file { 'nginx':
   ensure  => file,
   path    => '/etc/default/nginx',
-  content => 'ULIMIT="-N 500"'
+  content => 'ULIMIT="-n 500"'
 }
