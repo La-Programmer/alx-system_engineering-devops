@@ -1,9 +1,7 @@
-# Create a new user
-user { 'holberton':
-  ensure   => present,
-  uid      => 1001,
-  gid      => 1001,
-  home     => '/home/holberton',
-  shell    => '/bin/bash',
-  password => 'j1u2s3t4i5n6',
+# Fix OS config
+exec {
+  'fix os config':
+  command => '/bin/sed -i "s/5/2048/g; s/4/1024/g" /etc/security/limits.conf',
+  path => '/bin/',
+  unless => '/bin/grep -q "holberton hard nofile 2048"',
 }
