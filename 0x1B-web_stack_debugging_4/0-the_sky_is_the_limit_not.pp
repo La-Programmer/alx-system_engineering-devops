@@ -1,4 +1,9 @@
-# Fix NginX web server to be able to handle many requests 
+# Fix NginX web server to be able to handle many requests
+service { 'nginx':
+  ensure => running,
+  enable => true,
+}
+
 exec { 'fix -- for nginx':
   # modify the ULIMIT value
   command => '/bin/sed -i "s/15/4096/" /etc/default/nginx',
@@ -6,10 +11,5 @@ exec { 'fix -- for nginx':
   path    => '/bin/',
   # Ensure that the command only runs when necessary
   unless  => '/bin/grep -q "ulimit -n 4096" /etc/default/nginx',
-}
-
-service { 'nginx':
-  ensure  => running,
-  enable  => true,
-  require => Exec['fix -- for nginx'],  # Ensure Nginx is restarted only after ULIMIT is modified
+  notify  => Service['nginx'],
 }
